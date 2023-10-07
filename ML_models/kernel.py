@@ -39,4 +39,7 @@ def rbf_kernel(X, Y, gamma):
             kernel_matrix - (n, m) Numpy array containing the kernel matrix
     """
     # YOUR CODE HERE
-    raise NotImplementedError
+    diff = X.reshape(-1, 1, X.shape[1]) - Y
+    return np.exp(-gamma * np.linalg.norm(diff, ord=2, axis = -1)**2)
+
+
